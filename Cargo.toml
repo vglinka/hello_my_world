@@ -1,0 +1,30 @@
+[package]
+name = "hmw"
+version = "0.1.0"
+edition = "2021"
+authors = ["Vadim Glinka <vadgit@yandex.com>"]
+description = "Text-based game. You read news from another world and events from the life of the characters in it."
+keywords = ["hello-my-world", "HMW"]
+categories = ["games"]
+repository = "https://github.com/vglinka/hello_my_world"
+readme = "README.md"
+license = "AGPL-3.0"
+exclude = ["/assets", "/target"]
+
+[dependencies]
+nolog = { version = "1", features = ["debug"] }
+fluent = "0.16.0"
+
+[features]
+nolog_setup = []
+
+trace = ["nolog/trace", "nolog_setup"]
+debug = ["nolog/debug", "nolog_setup"]
+info  = ["nolog/info",  "nolog_setup"]
+warn  = ["nolog/warn",  "nolog_setup"]
+error = ["nolog/error", "nolog_setup"]
+crit  = ["nolog/crit",  "nolog_setup"]
+
+logonly  = ["nolog/logonly"]
+logcatch = ["nolog/logcatch"]
+logmod   = ["nolog/logmod"]
